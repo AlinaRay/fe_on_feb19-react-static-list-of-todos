@@ -6,11 +6,12 @@ export default function TodoList(props) {
     let elements = data.map((item) => {
         let user = props.getUserById(item.userId);
         return (
-            <TodoItem key={item.id}
-                      completed={item.completed}
-                      id={item.id}
-                      text={item.title}
-                      user={user}
+            <TodoItem
+                key={item.id}
+                completed={item.completed}
+                id={item.id}
+                text={item.title}
+                user={user}
             />
         )
     });

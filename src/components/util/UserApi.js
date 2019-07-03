@@ -10,5 +10,4 @@ export default function UserApi() {
             return user[0];
         }
     }
-
 }
