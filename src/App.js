@@ -1,12 +1,29 @@
 import React from 'react';
-import './App.css';
+import TodoApi from './components/util/TodoApi';
+import TodoList from './components/todo-list/TodoList';
+import UserApi from './components/util/UserApi';
 
-function App() {
-  return (
-    <div className="App">
+export default class App extends React.Component {
 
-    </div>
-  );
+    constructor() {
+        super();
+        this.todoApi = new TodoApi();
+        this.userApi = new UserApi();
+        this.state = {
+            todoData: this.todoApi.getAllTodos(),
+            usersData: this.userApi.getAllUsers(),
+        };
+    }
+
+    render() {
+        return (
+            <div>
+                <TodoList
+                    todos={this.state.todoData}
+                    getUserById={this.userApi.getUserById}
+                />
+            </div>
+        );
+    }
 }
 
-export default App;
